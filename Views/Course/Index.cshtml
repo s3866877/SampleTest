@@ -1,0 +1,39 @@
+﻿@model IEnumerable<Course>
+@{
+    ViewData["Title"] = "View All Courses";
+}
+<h1>View All Courses</h1>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.CourseID)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Title)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Credits)
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @if (Model.Any())
+        {
+            @foreach (var course in Model)
+            {
+                <tr>
+                    <td>@course.CourseID</td>
+                    <td>@course.Title</td>
+                    <td>@course.Credits</td>
+                </tr>
+            }
+        }
+        else
+        {
+            <tr>
+                <td>No Courses Were Found.</td>
+            </tr>
+        }
+    </tbody>
+</table>
